@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Your Profile</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/userOnboarding/user_onboarding.css' %}">
+    <style>
+        /* Tab styles */
+        .tab {
+            overflow: hidden;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+        .tab button {
+            background-color: #f1f1f1;
+            color: #333;
+            border: 1px solid #ccc;
+            border-bottom: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 20px;
+            transition: 0.3s;
+            font-size: 16px;
+        }
+        .tab button:hover {
+            background-color: #ddd;
+        }
+        .tab button.active {
+            background-color: #007bff;
+            color: white;
+        }
+        .tabcontent {
+            display: none;
+            padding: 20px;
+        }
+        .tabcontent.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-box">
+            <h2>Complete Your Profile</h2>
+            
+            <!-- Tabs for Sections -->
+            <div class="tab">
+                <button class="tablinks active" onclick="openTab(event, 'Profile')">Profile Information</button>
+                <button class="tablinks" onclick="openTab(event, 'Health')">Health Information</button>
+                <button class="tablinks" onclick="openTab(event, 'Education')">Education Information</button>
+                <button class="tablinks" onclick="openTab(event, 'Event')">Event Information</button>
+                <button class="tablinks" onclick="openTab(event, 'Finance')">Finance Information</button>
+            </div>
+
+            <!-- Form -->
+            <form method="POST">
+                {% csrf_token %}
+                
+                <!-- Profile Information -->
+                <div id="Profile" class="tabcontent active">
+                    <h3>Profile Information</h3>
+                    <div>
+                        <label for="first_name">First Name</label>
+                        {{ form.first_name }}
+                    </div>
+                    <div>
+                        <label for="last_name">Last Name</label>
+                        {{ form.last_name }}
+                    </div>
+                    <div>
+                        <label for="birth_date">Birth Date</label>
+                        {{ form.birth_date }}
+                    </div>
+                    <div>
+                        <label for="gender">Gender</label>
+                        {{ form.gender }}
+                    </div>
+                
+                </div>
+
+                <!-- Health Information -->
+    
+
+                <!-- Submit Button -->
+                <button type="submit">Save</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
