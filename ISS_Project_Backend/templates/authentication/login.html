@@ -23,7 +23,7 @@
 
             <!-- Login form -->
             <form method="POST">
-                {% csrf_token %}
+                {% comment %} {% csrf_token %} {% endcomment %}
                 <div class="input-group">
                     <label for="username">Username:</label>
                     <input type="text" name="username" id="username" required>
